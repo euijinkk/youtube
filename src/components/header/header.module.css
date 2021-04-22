@@ -1,0 +1,27 @@
+header {
+  background-color: black;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.brand {
+  margin: 10px;
+  display: flex;
+  align-items: center;
+}
+
+header > span svg {
+  margin-right: 5px;
+  color: red;
+}
+
+form {
+  flex-basis: 100%;
+  text-align: center;
+}
+
+form input {
+  width: 90%;
+  max-width: 700px;
+}
