@@ -8,8 +8,9 @@ const Video = (props) => {
             // console.log(props.video.id.videoId)
         // console.log(props.video.id);
         function onVideoClick (){
-            console.log(!props.currentVideo);
-            (!props.currentVideo) && props.onVideoClick(props.video)
+            // console.log(!props.currentVideo);
+            // (!props.currentVideo) && 
+            props.onVideoClick(props.video)
             window.scrollTo(0,0);
         }
             return(

@@ -1,11 +1,13 @@
 .app {
   width: 100%;
+  max-width: 80rem;
+  margin: auto;
 }
 
 .content {
   display: flex;
   width: 100%;
-  max-width: 1000px;
+  max-width: 80rem;
   margin: auto;
 }
 

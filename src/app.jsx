@@ -5,34 +5,37 @@ import YTsearch from 'youtube-api-search';
 import CurrentVideo from './components/currentVideo/currentVideo';
 import styles from './app.module.css';
 
-function App() {
-  const API_KEY = "AIzaSyDCUblhXqhxEMr1kZhI7b4fnWIFSxNfk9s";
+function App({youtube}) {
+  
   const [videos, setVideos] = useState([]);
   const [currentVideo, setCurrentVideo] =useState();
 
-  const MAX_RESULTS = 25;
   
-  const videoSearch = useCallback((term) => {
-    YTsearch({key: API_KEY, term: term, maxResults: MAX_RESULTS}, (videos) => {
-      setVideos(videos)
-      setCurrentVideo()
-      // Videos.lists
-    })    
-  }, [])
+  
+  // const videoSearch = useCallback((term) => {
+  //   YTsearch({key: API_KEY, term: term, maxResults: MAX_RESULTS}, (videos) => {
+  //     setVideos(videos)
+  //     setCurrentVideo()
+  //     // Videos.lists
+  //   })    
+  // }, [])
+  console.log(youtube.mostPopular().then(console.log));
+  const videoSearch = query => {
+    youtube.search(query)
+    .then(videos => setVideos(videos));
+
+     setCurrentVideo()
+    // .then()
+  }
+   
+  
 
   useEffect(()=> {
-    const requestOptions = {
-      method: 'GET',
-      redirect: 'follow'
-    };
-    
-    fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostpopular&maxResults=${MAX_RESULTS}&key=${API_KEY}`, requestOptions)
-      .then(response => response.json())
-      .then(result => setVideos(result.items))
-      .catch(error => console.log('error', error));
-  }, []);
-  
+    youtube.mostPopular()
+    .then(videos => setVideos(videos))
+  })
   // console.log(videos)
+
   function selectVideo(video) {
     // console.log(video);
     setCurrentVideo(video);

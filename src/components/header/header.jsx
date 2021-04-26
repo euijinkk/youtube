@@ -13,7 +13,7 @@ const Header = (props) => {
     return (
         <header>
             <a href="" className={styles.brand}>
-                <i className="fab fa-youtube"></i>
+                <img src="/favicon.svg" alt="logo"/>
                 <span className={styles.youtube}>Youtube</span>
             </a>    
             <form action="" onSubmit={onSubmit}>

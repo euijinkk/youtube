@@ -7,7 +7,7 @@ const Videos = (props) => {
     // props.videos && console.log(props)
         // .videos[0].id.kind);
     const lists = useRef();
-    console.log(props.widthPercent);
+    // console.log(props.widthPercent);
     lists.current && (lists.current.style.flexDirection = props.flexDirection);
     lists.current && (lists.current.childNodes.forEach(list => list.style.width = props.widthPercent));
     // props.currentVideo
@@ -24,6 +24,7 @@ const Videos = (props) => {
             {
                 props.videos.map(video => (
                     <Video 
+                        key= {video.id}
                         video = {video}
                         onVideoClick = {props.onVideoClick}
                         currentVideo = {props.currentVideo}
