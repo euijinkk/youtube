@@ -11,7 +11,14 @@ header {
   align-items: center;
 }
 
-header > span svg {
+header a {
+  font-style: none;
+  text-decoration: none;
+  color: white;
+  /* border */
+}
+
+header > a svg {
   margin-right: 5px;
   color: red;
 }

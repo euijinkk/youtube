@@ -18,15 +18,15 @@ const Videos = (props) => {
     
     // lists.current && (lists.current);
     
-
+    // console.log(props.videos[0].id)
     return (
         <ul ref={lists}>
             {
                 props.videos.map(video => (
                     <Video 
-                        key = {video.id.videoId}
                         video = {video}
                         onVideoClick = {props.onVideoClick}
+                        currentVideo = {props.currentVideo}
                     />
                 ))
             }

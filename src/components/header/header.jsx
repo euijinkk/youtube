@@ -12,10 +12,10 @@ const Header = (props) => {
 
     return (
         <header>
-            <span className={styles.brand}>
+            <a href="" className={styles.brand}>
                 <i className="fab fa-youtube"></i>
                 <span className={styles.youtube}>Youtube</span>
-            </span>    
+            </a>    
             <form action="" onSubmit={onSubmit}>
                 <input type="text" ref={inputRef} />
                 <button>
