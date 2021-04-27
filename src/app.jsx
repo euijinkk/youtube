@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import Header from './components/header/header';
 import Videos from './components/videos/videos';
-import YTsearch from 'youtube-api-search';
+// import YTsearch from 'youtube-api-search';
 import CurrentVideo from './components/currentVideo/currentVideo';
 import styles from './app.module.css';
 
@@ -19,21 +19,20 @@ function App({youtube}) {
   //     // Videos.lists
   //   })    
   // }, [])
-  console.log(youtube.mostPopular().then(console.log));
-  const videoSearch = query => {
+  // console.log(youtube.mostPopular().then(console.log));
+  const videoSearch = useCallback(query => {
     youtube.search(query)
-    .then(videos => setVideos(videos));
-
-     setCurrentVideo()
-    // .then()
-  }
-   
-  
+    .then(videos => {
+      setVideos(videos)
+      setCurrentVideo(null)
+    })
+  }, [youtube])
 
   useEffect(()=> {
+    console.log(`123`);
     youtube.mostPopular()
     .then(videos => setVideos(videos))
-  })
+  }, [youtube])
   // console.log(videos)
 
   function selectVideo(video) {

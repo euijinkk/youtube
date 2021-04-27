@@ -1,7 +1,7 @@
-import React, { useRef } from 'react';
+import React, { memo, useRef } from 'react';
 import styles from './header.module.css'
 
-const Header = (props) => {
+const Header = memo((props) => {
     const inputRef = useRef(null);
     const onSubmit = (event) =>{
         event.preventDefault();
@@ -24,6 +24,6 @@ const Header = (props) => {
             </form>
         </header>
     )
-};
+});
 
 export default Header;

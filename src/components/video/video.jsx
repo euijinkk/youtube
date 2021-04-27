@@ -1,7 +1,7 @@
-import React, { memo } from 'react';
+import React, { memo }  from 'react';
 import styles from './video.module.css'
 
-const Video = (props) => {
+const Video = memo((props) => {
             // console.log(props.video.id.videoId);
             // console.log(props.video.snippet.title)
             // console.log(props.video.snippet.channelTitle)
@@ -23,6 +23,6 @@ const Video = (props) => {
                 </div>
             )
         
-};
+});
 
 export default Video;
